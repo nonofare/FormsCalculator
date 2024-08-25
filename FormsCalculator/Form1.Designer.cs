@@ -33,7 +33,7 @@
 			btnCE = new Button();
 			btnC = new Button();
 			btnBackspace = new Button();
-			btnRoot = new Button();
+			btnFraction = new Button();
 			btnPowTwo = new Button();
 			btnSqrt = new Button();
 			btnDivide = new Button();
@@ -64,6 +64,7 @@
 			btnPercent.TabIndex = 0;
 			btnPercent.Text = "%";
 			btnPercent.UseVisualStyleBackColor = true;
+			btnPercent.Click += btnPercent_Click;
 			// 
 			// textBox
 			// 
@@ -106,15 +107,16 @@
 			btnBackspace.UseVisualStyleBackColor = true;
 			btnBackspace.Click += btnBackspace_Click;
 			// 
-			// btnRoot
+			// btnFraction
 			// 
-			btnRoot.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-			btnRoot.Location = new Point(12, 149);
-			btnRoot.Name = "btnRoot";
-			btnRoot.Size = new Size(128, 64);
-			btnRoot.TabIndex = 6;
-			btnRoot.Text = "1/x";
-			btnRoot.UseVisualStyleBackColor = true;
+			btnFraction.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			btnFraction.Location = new Point(12, 149);
+			btnFraction.Name = "btnFraction";
+			btnFraction.Size = new Size(128, 64);
+			btnFraction.TabIndex = 6;
+			btnFraction.Text = "1/x";
+			btnFraction.UseVisualStyleBackColor = true;
+			btnFraction.Click += btnFraction_Click;
 			// 
 			// btnPowTwo
 			// 
@@ -349,7 +351,7 @@
 			Controls.Add(btnDivide);
 			Controls.Add(btnSqrt);
 			Controls.Add(btnPowTwo);
-			Controls.Add(btnRoot);
+			Controls.Add(btnFraction);
 			Controls.Add(btnBackspace);
 			Controls.Add(btnC);
 			Controls.Add(btnCE);
@@ -368,7 +370,7 @@
 		private Button btnCE;
 		private Button btnC;
 		private Button btnBackspace;
-		private Button btnRoot;
+		private Button btnFraction;
 		private Button btnPowTwo;
 		private Button btnSqrt;
 		private Button btnDivide;

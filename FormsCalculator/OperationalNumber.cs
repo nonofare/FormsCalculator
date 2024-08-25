@@ -15,6 +15,16 @@ namespace FormsCalculator
 			value = "0";
 		}
 
+		public void setDoubleValue(double value)
+		{
+			this.value = value.ToString();
+		}
+
+		public void setStringValue(string value)
+		{
+			this.value = value;
+		}
+
 		public double getDoubleValue()
 		{
 			return double.Parse(value);
@@ -41,19 +51,18 @@ namespace FormsCalculator
 
 		public void clearAtEnd()
 		{
-			value.Remove(value.Length - 1);
+			if (value.Length > 1)
+			{
+				value = value.Remove(value.Length - 1);
+			} else
+			{
+				value = "0";
+			}
 		}
 
-		public void invert() // does not work
+		public void invert()
 		{
-			if (value[0] != '-')
-			{
-				value = "-" + value;
-			}
-			else
-			{
-				value.Replace("-", "");
-			}
+			value = (getDoubleValue() * -1).ToString();
 		}
 	}
 }

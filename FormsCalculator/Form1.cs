@@ -1,221 +1,375 @@
+// dodac ze po kliknieciu enter obie wartosci sie czyszcza jezeli kliknieta jest liczba
+// naprawic zeby zero pokazywalo sie przed kropka
+// uladnic UI
+
 namespace FormsCalculator
 {
 	public partial class Calculator : Form
 	{
-		private List<OperationalNumber> numbers;
-		private int currentNumberIndex;
-		private List<char> waitingOperations;
+		private OperationalNumber mainNumber;
+		private OperationalNumber auxiliaryNumber;
+		private bool isMianNumberActive;
+		private char waitingOperation;
 
 		public Calculator()
 		{
 			InitializeComponent();
 
-			numbers = new List<OperationalNumber>();
-			numbers.Add(new OperationalNumber());
-			currentNumberIndex = 0;
+			mainNumber = new OperationalNumber();
+			auxiliaryNumber = new OperationalNumber();
+			isMianNumberActive = true;
+			waitingOperation = '0';
 
-			waitingOperations = new List<char>();
+			loop();
 		}
 
 		private void loop()
 		{
 			textBox.Clear();
-			textBox.AppendText(numbers[currentNumberIndex].getStringValue());
+
+			switch (isMianNumberActive)
+			{
+				case true:
+					textBox.AppendText(mainNumber.getStringValue());
+					break;
+				case false:
+					textBox.AppendText(auxiliaryNumber.getStringValue());
+					break;
+			}
 		}
 
 		private void btn1_Click(object sender, EventArgs e)
 		{
-			numbers[currentNumberIndex].addAtEnd('1');
+			switch (isMianNumberActive)
+			{
+				case true:
+					mainNumber.addAtEnd('1');
+					break;
+				case false:
+					auxiliaryNumber.addAtEnd('1');
+					break;
+			}
+
 			loop();
 		}
 
 		private void btn2_Click(object sender, EventArgs e)
 		{
-			numbers[currentNumberIndex].addAtEnd('2');
+			switch (isMianNumberActive)
+			{
+				case true:
+					mainNumber.addAtEnd('2');
+					break;
+				case false:
+					auxiliaryNumber.addAtEnd('2');
+					break;
+			}
+
 			loop();
 		}
 
 		private void btn3_Click(object sender, EventArgs e)
 		{
-			numbers[currentNumberIndex].addAtEnd('3');
+			switch (isMianNumberActive)
+			{
+				case true:
+					mainNumber.addAtEnd('3');
+					break;
+				case false:
+					auxiliaryNumber.addAtEnd('3');
+					break;
+			}
+
 			loop();
 		}
 
 		private void btn4_Click(object sender, EventArgs e)
 		{
-			numbers[currentNumberIndex].addAtEnd('4');
+			switch (isMianNumberActive)
+			{
+				case true:
+					mainNumber.addAtEnd('4');
+					break;
+				case false:
+					auxiliaryNumber.addAtEnd('4');
+					break;
+			}
+
 			loop();
 		}
 
 		private void btn5_Click(object sender, EventArgs e)
 		{
-			numbers[currentNumberIndex].addAtEnd('5');
+			switch (isMianNumberActive)
+			{
+				case true:
+					mainNumber.addAtEnd('5');
+					break;
+				case false:
+					auxiliaryNumber.addAtEnd('5');
+					break;
+			}
+
 			loop();
 		}
 
 		private void btn6_Click(object sender, EventArgs e)
 		{
-			numbers[currentNumberIndex].addAtEnd('6');
+			switch (isMianNumberActive)
+			{
+				case true:
+					mainNumber.addAtEnd('6');
+					break;
+				case false:
+					auxiliaryNumber.addAtEnd('6');
+					break;
+			}
+
 			loop();
 		}
 
 		private void btn7_Click(object sender, EventArgs e)
 		{
-			numbers[currentNumberIndex].addAtEnd('7');
+			switch (isMianNumberActive)
+			{
+				case true:
+					mainNumber.addAtEnd('7');
+					break;
+				case false:
+					auxiliaryNumber.addAtEnd('7');
+					break;
+			}
+
 			loop();
 		}
 
 		private void btn8_Click(object sender, EventArgs e)
 		{
-			numbers[currentNumberIndex].addAtEnd('8');
+			switch (isMianNumberActive)
+			{
+				case true:
+					mainNumber.addAtEnd('8');
+					break;
+				case false:
+					auxiliaryNumber.addAtEnd('8');
+					break;
+			}
+
 			loop();
 		}
 
 		private void btn9_Click(object sender, EventArgs e)
 		{
-			numbers[currentNumberIndex].addAtEnd('9');
+			switch (isMianNumberActive)
+			{
+				case true:
+					mainNumber.addAtEnd('9');
+					break;
+				case false:
+					auxiliaryNumber.addAtEnd('9');
+					break;
+			}
+
 			loop();
 		}
 
 		private void btn0_Click(object sender, EventArgs e)
 		{
-			numbers[currentNumberIndex].addAtEnd('0');
-			loop();
-		}
+			switch (isMianNumberActive)
+			{
+				case true:
+					mainNumber.addAtEnd('0');
+					break;
+				case false:
+					auxiliaryNumber.addAtEnd('0');
+					break;
+			}
 
-		private void btnNegative_Click(object sender, EventArgs e)
-		{
-			numbers[currentNumberIndex].invert();
 			loop();
 		}
 
 		private void btnDot_Click(object sender, EventArgs e)
 		{
-			numbers[currentNumberIndex].addAtEnd('.');
+			switch (isMianNumberActive)
+			{
+				case true:
+					mainNumber.addAtEnd('.');
+					break;
+				case false:
+					auxiliaryNumber.addAtEnd('.');
+					break;
+			}
+
+			loop();
+		}
+
+		private void btnNegative_Click(object sender, EventArgs e)
+		{
+			switch (isMianNumberActive)
+			{
+				case true:
+					mainNumber.invert();
+					break;
+				case false:
+					auxiliaryNumber.invert();
+					break;
+			}
+
 			loop();
 		}
 
 		private void btnAdd_Click(object sender, EventArgs e)
 		{
-			textBox.Clear();
-			textBox.AppendText("+");
+			calculate();
 
-			numbers.Add(new OperationalNumber());
-			currentNumberIndex++;
-
-			waitingOperations.Add('+');
+			isMianNumberActive = false;
+			waitingOperation = '+';
 		}
 
 		private void btnSubstract_Click(object sender, EventArgs e)
 		{
-			textBox.Clear();
-			textBox.AppendText("-");
+			calculate();
 
-			numbers.Add(new OperationalNumber());
-			currentNumberIndex++;
-
-			waitingOperations.Add('-');
+			isMianNumberActive = false;
+			waitingOperation = '-';
 		}
 
 		private void btnMultiply_Click(object sender, EventArgs e)
 		{
-			textBox.Clear();
-			textBox.AppendText("X");
+			calculate();
 
-			numbers.Add(new OperationalNumber());
-			currentNumberIndex++;
-
-			waitingOperations.Add('*');
+			isMianNumberActive = false;
+			waitingOperation = '*';
 		}
 
 		private void btnDivide_CLick(object sender, EventArgs e)
 		{
-			textBox.Clear();
-			textBox.AppendText("/");
+			calculate();
 
-			numbers.Add(new OperationalNumber());
-			currentNumberIndex++;
-
-			waitingOperations.Add('/');
+			isMianNumberActive = false;
+			waitingOperation = '/';
 		}
 
 		private void btnSqrt_Click(object sender, EventArgs e)
 		{
-			textBox.Clear();
-			textBox.AppendText("sqrt");
+			calculate();
 
-			numbers.Add(new OperationalNumber());
-			currentNumberIndex++;
-
-			waitingOperations.Add('s');
+			isMianNumberActive = false;
+			waitingOperation = 's';
 		}
 
 		private void btnPowTwo_Click(object sender, EventArgs e)
 		{
-			textBox.Clear();
-			textBox.AppendText("^2");
+			calculate();
 
-			numbers.Add(new OperationalNumber());
-			currentNumberIndex++;
+			isMianNumberActive = false;
+			waitingOperation = '^';
+		}
 
-			waitingOperations.Add('p');
+		private void btnFraction_Click(object sender, EventArgs e)
+		{
+			calculate();
+
+			isMianNumberActive = false;
+			waitingOperation = 'f';
+		}
+
+		private void btnPercent_Click(object sender, EventArgs e)
+		{
+			calculate();
+
+			isMianNumberActive = false;
+			waitingOperation = '%';
 		}
 
 		private void btnEquals_Click(object sender, EventArgs e)
 		{
-			textBox.Clear();
-
-			double result = numbers[0].getDoubleValue();
-
-			if (numbers.Count > 1)
-			{
-				for (int i = 0; i < waitingOperations.Count; i++)
-				{
-					switch (waitingOperations[i])
-					{
-						case '+':
-							result += numbers[i + 1].getDoubleValue();
-							break;
-						case '-':
-							result -= numbers[i + 1].getDoubleValue();
-							break;
-						case '*':
-							result *= numbers[i + 1].getDoubleValue();
-							break;
-						case '/':
-							result /= numbers[i + 1].getDoubleValue();
-							break;
-						case 's':
-							result = Math.Sqrt(numbers[i].getDoubleValue());
-							break;
-						case 'p':
-							result = Math.Pow(numbers[i].getDoubleValue(), 2);
-							break;
-					}
-				}
-
-				textBox.AppendText(result.ToString());
-			}
+			calculate();
 		}
 
 		private void btnC_Click(object sender, EventArgs e)
 		{
-			numbers.Clear();
-			numbers.Add(new OperationalNumber());
-			currentNumberIndex = 0;
+			mainNumber.clear();
+			auxiliaryNumber.clear();
+			isMianNumberActive = true;
+			waitingOperation = '0';
 
 			loop();
 		}
 
 		private void btnCE_Click(object sender, EventArgs e)
 		{
-			numbers[currentNumberIndex].clear();
+			switch (isMianNumberActive)
+			{
+				case true:
+					mainNumber.clear();
+					break;
+				case false:
+					auxiliaryNumber.clear();
+					break;
+			}
+
 			loop();
 		}
 
 		private void btnBackspace_Click(object sender, EventArgs e)
 		{
-			numbers[currentNumberIndex].clearAtEnd();
+			switch (isMianNumberActive)
+			{
+				case true:
+					mainNumber.clearAtEnd();
+					break;
+				case false:
+					auxiliaryNumber.clearAtEnd();
+					break;
+			}
+
+			loop();
+		}
+
+		private void calculate()
+		{
+			if (waitingOperation != '0')
+			{
+				switch (waitingOperation)
+				{
+					case '+':
+						mainNumber.setDoubleValue(mainNumber.getDoubleValue() + auxiliaryNumber.getDoubleValue());
+						break;
+					case '-':
+						mainNumber.setDoubleValue(mainNumber.getDoubleValue() - auxiliaryNumber.getDoubleValue());
+						break;
+					case '*':
+						mainNumber.setDoubleValue(mainNumber.getDoubleValue() * auxiliaryNumber.getDoubleValue());
+						break;
+					case '/':
+						if (auxiliaryNumber.getDoubleValue() != 0)
+						{
+							mainNumber.setDoubleValue(mainNumber.getDoubleValue() / auxiliaryNumber.getDoubleValue());
+						}
+						break;
+					case 's':
+						mainNumber.setDoubleValue(Math.Sqrt(mainNumber.getDoubleValue()));
+						break;
+					case '^':
+						mainNumber.setDoubleValue(Math.Pow(mainNumber.getDoubleValue(), 2));
+						break;
+					case 'f':
+						mainNumber.setDoubleValue(mainNumber.getDoubleValue() * 0.1);
+						break;
+					case '%':
+						mainNumber.setDoubleValue(mainNumber.getDoubleValue() * (auxiliaryNumber.getDoubleValue() * 0.01));
+						break;
+					default:
+						break;
+				}
+
+				auxiliaryNumber.clear();
+				isMianNumberActive = true;
+				waitingOperation = '0';
+			}
+
+			loop();
 		}
 	}
 }
