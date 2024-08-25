@@ -12,7 +12,7 @@ namespace FormsCalculator
 
 		public OperationalNumber()
 		{
-			value = "";
+			value = "0";
 		}
 
 		public double getDoubleValue()
@@ -25,19 +25,34 @@ namespace FormsCalculator
 			return value;
 		}
 
-		public void add(char singleNumber)
+		public void addAtEnd(char singleNumber)
 		{
+			if (value.Length == 1 && value == "0")
+			{
+				value = "";
+			}
 			value += singleNumber;
 		}
 
-		public void invert()
+		public void clear()
+		{
+			value = "0";
+		}
+
+		public void clearAtEnd()
+		{
+			value.Remove(value.Length - 1);
+		}
+
+		public void invert() // does not work
 		{
 			if (value[0] != '-')
 			{
 				value = "-" + value;
-			} else
+			}
+			else
 			{
-				value.Substring(0);
+				value.Replace("-", "");
 			}
 		}
 	}

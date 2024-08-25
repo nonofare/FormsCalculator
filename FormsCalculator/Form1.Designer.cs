@@ -1,6 +1,6 @@
 ﻿namespace FormsCalculator
 {
-	partial class Form1
+	partial class Calculator
 	{
 		/// <summary>
 		///  Required designer variable.
@@ -82,6 +82,7 @@
 			btnCE.TabIndex = 3;
 			btnCE.Text = "CE";
 			btnCE.UseVisualStyleBackColor = true;
+			btnCE.Click += btnCE_Click;
 			// 
 			// btnC
 			// 
@@ -92,6 +93,7 @@
 			btnC.TabIndex = 4;
 			btnC.Text = "C";
 			btnC.UseVisualStyleBackColor = true;
+			btnC.Click += btnC_Click;
 			// 
 			// btnBackspace
 			// 
@@ -102,6 +104,7 @@
 			btnBackspace.TabIndex = 5;
 			btnBackspace.Text = "<-";
 			btnBackspace.UseVisualStyleBackColor = true;
+			btnBackspace.Click += btnBackspace_Click;
 			// 
 			// btnRoot
 			// 
@@ -122,6 +125,7 @@
 			btnPowTwo.TabIndex = 7;
 			btnPowTwo.Text = "^2";
 			btnPowTwo.UseVisualStyleBackColor = true;
+			btnPowTwo.Click += btnPowTwo_Click;
 			// 
 			// btnSqrt
 			// 
@@ -132,6 +136,7 @@
 			btnSqrt.TabIndex = 8;
 			btnSqrt.Text = "sqrt";
 			btnSqrt.UseVisualStyleBackColor = true;
+			btnSqrt.Click += btnSqrt_Click;
 			// 
 			// btnDivide
 			// 
@@ -142,6 +147,7 @@
 			btnDivide.TabIndex = 9;
 			btnDivide.Text = "/";
 			btnDivide.UseVisualStyleBackColor = true;
+			btnDivide.Click += btnDivide_CLick;
 			// 
 			// btn7
 			// 
@@ -152,7 +158,7 @@
 			btn7.TabIndex = 10;
 			btn7.Text = "7";
 			btn7.UseVisualStyleBackColor = true;
-			btn7.Click += btn7Click;
+			btn7.Click += btn7_Click;
 			// 
 			// btn8
 			// 
@@ -163,7 +169,7 @@
 			btn8.TabIndex = 11;
 			btn8.Text = "8";
 			btn8.UseVisualStyleBackColor = true;
-			btn8.Click += btn8Click;
+			btn8.Click += btn8_Click;
 			// 
 			// btn9
 			// 
@@ -174,7 +180,7 @@
 			btn9.TabIndex = 12;
 			btn9.Text = "9";
 			btn9.UseVisualStyleBackColor = true;
-			btn9.Click += btn9Click;
+			btn9.Click += btn9_Click;
 			// 
 			// btnMultiply
 			// 
@@ -185,6 +191,7 @@
 			btnMultiply.TabIndex = 13;
 			btnMultiply.Text = "X";
 			btnMultiply.UseVisualStyleBackColor = true;
+			btnMultiply.Click += btnMultiply_Click;
 			// 
 			// btn4
 			// 
@@ -195,7 +202,7 @@
 			btn4.TabIndex = 14;
 			btn4.Text = "4";
 			btn4.UseVisualStyleBackColor = true;
-			btn4.Click += btn4Click;
+			btn4.Click += btn4_Click;
 			// 
 			// btn5
 			// 
@@ -206,7 +213,7 @@
 			btn5.TabIndex = 15;
 			btn5.Text = "5";
 			btn5.UseVisualStyleBackColor = true;
-			btn5.Click += btn5Click;
+			btn5.Click += btn5_Click;
 			// 
 			// btn6
 			// 
@@ -217,7 +224,7 @@
 			btn6.TabIndex = 16;
 			btn6.Text = "6";
 			btn6.UseVisualStyleBackColor = true;
-			btn6.Click += btn6Click;
+			btn6.Click += btn6_Click;
 			// 
 			// btnSubstract
 			// 
@@ -228,6 +235,7 @@
 			btnSubstract.TabIndex = 17;
 			btnSubstract.Text = "-";
 			btnSubstract.UseVisualStyleBackColor = true;
+			btnSubstract.Click += btnSubstract_Click;
 			// 
 			// btn1
 			// 
@@ -238,7 +246,7 @@
 			btn1.TabIndex = 18;
 			btn1.Text = "1";
 			btn1.UseVisualStyleBackColor = true;
-			btn1.Click += btn1Click;
+			btn1.Click += btn1_Click;
 			// 
 			// btn2
 			// 
@@ -249,7 +257,7 @@
 			btn2.TabIndex = 19;
 			btn2.Text = "2";
 			btn2.UseVisualStyleBackColor = true;
-			btn2.Click += btn2Click;
+			btn2.Click += btn2_Click;
 			// 
 			// btn3
 			// 
@@ -260,7 +268,7 @@
 			btn3.TabIndex = 20;
 			btn3.Text = "3";
 			btn3.UseVisualStyleBackColor = true;
-			btn3.Click += btn3Click;
+			btn3.Click += btn3_Click;
 			// 
 			// btnAdd
 			// 
@@ -271,6 +279,7 @@
 			btnAdd.TabIndex = 21;
 			btnAdd.Text = "+";
 			btnAdd.UseVisualStyleBackColor = true;
+			btnAdd.Click += btnAdd_Click;
 			// 
 			// btnNegative
 			// 
@@ -281,7 +290,7 @@
 			btnNegative.TabIndex = 22;
 			btnNegative.Text = "+/-";
 			btnNegative.UseVisualStyleBackColor = true;
-			btnNegative.Click += btnNegativeClick;
+			btnNegative.Click += btnNegative_Click;
 			// 
 			// btn0
 			// 
@@ -292,7 +301,7 @@
 			btn0.TabIndex = 23;
 			btn0.Text = "0";
 			btn0.UseVisualStyleBackColor = true;
-			btn0.Click += btn0Click;
+			btn0.Click += btn0_Click;
 			// 
 			// btnDot
 			// 
@@ -303,6 +312,7 @@
 			btnDot.TabIndex = 24;
 			btnDot.Text = ".";
 			btnDot.UseVisualStyleBackColor = true;
+			btnDot.Click += btnDot_Click;
 			// 
 			// btnEquals
 			// 
@@ -313,8 +323,9 @@
 			btnEquals.TabIndex = 25;
 			btnEquals.Text = "=";
 			btnEquals.UseVisualStyleBackColor = true;
+			btnEquals.Click += btnEquals_Click;
 			// 
-			// Form1
+			// Calculator
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
@@ -344,8 +355,8 @@
 			Controls.Add(btnCE);
 			Controls.Add(textBox);
 			Controls.Add(btnPercent);
-			Name = "Form1";
-			Text = "Form1";
+			Name = "Calculator";
+			Text = "Calculator";
 			ResumeLayout(false);
 			PerformLayout();
 		}
