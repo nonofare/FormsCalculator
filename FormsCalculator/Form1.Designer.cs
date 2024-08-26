@@ -71,6 +71,7 @@
 			textBox.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			textBox.Location = new Point(12, 12);
 			textBox.Name = "textBox";
+			textBox.RightToLeft = RightToLeft.Yes;
 			textBox.Size = new Size(530, 61);
 			textBox.TabIndex = 2;
 			// 
@@ -331,7 +332,7 @@
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(552, 505);
+			ClientSize = new Size(555, 505);
 			Controls.Add(btnEquals);
 			Controls.Add(btnDot);
 			Controls.Add(btn0);

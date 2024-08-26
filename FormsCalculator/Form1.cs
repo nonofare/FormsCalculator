@@ -1,7 +1,3 @@
-// dodac ze po kliknieciu enter obie wartosci sie czyszcza jezeli kliknieta jest liczba
-// naprawic zeby zero pokazywalo sie przed kropka
-// uladnic UI
-
 namespace FormsCalculator
 {
 	public partial class Calculator : Form
@@ -20,10 +16,10 @@ namespace FormsCalculator
 			isMianNumberActive = true;
 			waitingOperation = '0';
 
-			loop();
+			screenRefresh();
 		}
 
-		private void loop()
+		private void screenRefresh()
 		{
 			textBox.Clear();
 
@@ -50,7 +46,7 @@ namespace FormsCalculator
 					break;
 			}
 
-			loop();
+			screenRefresh();
 		}
 
 		private void btn2_Click(object sender, EventArgs e)
@@ -65,7 +61,7 @@ namespace FormsCalculator
 					break;
 			}
 
-			loop();
+			screenRefresh();
 		}
 
 		private void btn3_Click(object sender, EventArgs e)
@@ -80,7 +76,7 @@ namespace FormsCalculator
 					break;
 			}
 
-			loop();
+			screenRefresh();
 		}
 
 		private void btn4_Click(object sender, EventArgs e)
@@ -95,7 +91,7 @@ namespace FormsCalculator
 					break;
 			}
 
-			loop();
+			screenRefresh();
 		}
 
 		private void btn5_Click(object sender, EventArgs e)
@@ -110,7 +106,7 @@ namespace FormsCalculator
 					break;
 			}
 
-			loop();
+			screenRefresh();
 		}
 
 		private void btn6_Click(object sender, EventArgs e)
@@ -125,7 +121,7 @@ namespace FormsCalculator
 					break;
 			}
 
-			loop();
+			screenRefresh();
 		}
 
 		private void btn7_Click(object sender, EventArgs e)
@@ -140,7 +136,7 @@ namespace FormsCalculator
 					break;
 			}
 
-			loop();
+			screenRefresh();
 		}
 
 		private void btn8_Click(object sender, EventArgs e)
@@ -155,7 +151,7 @@ namespace FormsCalculator
 					break;
 			}
 
-			loop();
+			screenRefresh();
 		}
 
 		private void btn9_Click(object sender, EventArgs e)
@@ -170,7 +166,7 @@ namespace FormsCalculator
 					break;
 			}
 
-			loop();
+			screenRefresh();
 		}
 
 		private void btn0_Click(object sender, EventArgs e)
@@ -185,7 +181,7 @@ namespace FormsCalculator
 					break;
 			}
 
-			loop();
+			screenRefresh();
 		}
 
 		private void btnDot_Click(object sender, EventArgs e)
@@ -200,7 +196,7 @@ namespace FormsCalculator
 					break;
 			}
 
-			loop();
+			screenRefresh();
 		}
 
 		private void btnNegative_Click(object sender, EventArgs e)
@@ -215,7 +211,7 @@ namespace FormsCalculator
 					break;
 			}
 
-			loop();
+			screenRefresh();
 		}
 
 		private void btnAdd_Click(object sender, EventArgs e)
@@ -256,6 +252,8 @@ namespace FormsCalculator
 
 			isMianNumberActive = false;
 			waitingOperation = 's';
+
+			calculate();
 		}
 
 		private void btnPowTwo_Click(object sender, EventArgs e)
@@ -264,6 +262,8 @@ namespace FormsCalculator
 
 			isMianNumberActive = false;
 			waitingOperation = '^';
+
+			calculate();
 		}
 
 		private void btnFraction_Click(object sender, EventArgs e)
@@ -272,6 +272,8 @@ namespace FormsCalculator
 
 			isMianNumberActive = false;
 			waitingOperation = 'f';
+
+			calculate();
 		}
 
 		private void btnPercent_Click(object sender, EventArgs e)
@@ -294,7 +296,7 @@ namespace FormsCalculator
 			isMianNumberActive = true;
 			waitingOperation = '0';
 
-			loop();
+			screenRefresh();
 		}
 
 		private void btnCE_Click(object sender, EventArgs e)
@@ -309,7 +311,7 @@ namespace FormsCalculator
 					break;
 			}
 
-			loop();
+			screenRefresh();
 		}
 
 		private void btnBackspace_Click(object sender, EventArgs e)
@@ -324,7 +326,7 @@ namespace FormsCalculator
 					break;
 			}
 
-			loop();
+			screenRefresh();
 		}
 
 		private void calculate()
@@ -355,7 +357,7 @@ namespace FormsCalculator
 						mainNumber.setDoubleValue(Math.Pow(mainNumber.getDoubleValue(), 2));
 						break;
 					case 'f':
-						mainNumber.setDoubleValue(mainNumber.getDoubleValue() * 0.1);
+						mainNumber.setDoubleValue(1/ mainNumber.getDoubleValue());
 						break;
 					case '%':
 						mainNumber.setDoubleValue(mainNumber.getDoubleValue() * (auxiliaryNumber.getDoubleValue() * 0.01));
@@ -369,7 +371,7 @@ namespace FormsCalculator
 				waitingOperation = '0';
 			}
 
-			loop();
+			screenRefresh();
 		}
 	}
 }

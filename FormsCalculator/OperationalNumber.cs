@@ -37,7 +37,7 @@ namespace FormsCalculator
 
 		public void addAtEnd(char singleNumber)
 		{
-			if (value.Length == 1 && value == "0")
+			if (value.Length == 1 && value == "0" && singleNumber != '.')
 			{
 				value = "";
 			}
