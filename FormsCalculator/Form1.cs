@@ -362,8 +362,6 @@ namespace FormsCalculator
 					case '%':
 						mainNumber.setDoubleValue(mainNumber.getDoubleValue() * (auxiliaryNumber.getDoubleValue() * 0.01));
 						break;
-					default:
-						break;
 				}
 
 				auxiliaryNumber.clear();
